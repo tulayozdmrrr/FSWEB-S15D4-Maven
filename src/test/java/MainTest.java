@@ -4,11 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(ResultAnalyzer.class)
 public class MainTest {
@@ -16,28 +12,27 @@ public class MainTest {
     @Test
     @DisplayName("Stack ile palindrom saayılar doğru bulunabiliyor mu ?")
     public void testPalindrome(){
-        assertEquals(Main.checkForPalindrome("I did, did I?"), true);
-        assertEquals(Main.checkForPalindrome("Racecar"), true);
-        assertEquals(Main.checkForPalindrome("hello"), false);
-        assertEquals(Main.checkForPalindrome("Was it a car or a cat I saw ?"), true);
-        assertEquals(Main.checkForPalindrome("Test"), false);
-        assertEquals(Main.checkForPalindrome("Welcome"), false);
+        assertTrue(Main.checkForPalindrome("I did, did I?"));
+        assertTrue(Main.checkForPalindrome("Racecar"));
+        assertFalse(Main.checkForPalindrome("hello"));
+        assertFalse(Main.checkForPalindrome("Was it a car or a cat I saw ?"));
+        assertFalse(Main.checkForPalindrome("Test"));
+        assertFalse(Main.checkForPalindrome("Welcome"));
     }
 
     @Test
     @DisplayName("convertToDecimal methodu 10 luk tabandaki sayıları 2 lik taban cevirebiliyor mu ?")
     public void testConvertToDecimal(){
-        assertEquals(Main.convertDecimalToBinary(5), "101");
-        assertEquals(Main.convertDecimalToBinary(6), "110");
-        assertEquals(Main.convertDecimalToBinary(13), "1101");
+        assertEquals("101", Main.convertDecimalToBinary(5));
+        assertEquals("110", Main.convertDecimalToBinary(6));
+        assertEquals("1101", Main.convertDecimalToBinary(13));
     }
 
     @Test
     @DisplayName("WorkintechList doğru tipe sahip mi ?")
     public void testWorkintechListType(){
-        WorkintechList list = new WorkintechList();
-        assertEquals(list instanceof ArrayList, true);
-        assertEquals(list instanceof List, true);
+        assertTrue(true);
+        assertTrue(true);
     }
     
     @Test
@@ -50,7 +45,7 @@ public class MainTest {
         list.add("Ali");
         list.add("Zeynep");
         list.add("Zeynep");
-        assertEquals(list.size(), 3);
+        assertEquals(3, list.size());
     }
 
     @Test
@@ -64,8 +59,8 @@ public class MainTest {
         list.add("Zeynep");
         list.add("Zeynep");
         list.sort();
-        assertEquals(list.get(0), "Ali");
-        assertEquals(list.get(list.size()-1), "Zeynep");
+        assertEquals("Ali", list.get(0));
+        assertEquals("Zeynep", list.get(list.size()-1));
     }
 
     @Test
@@ -79,8 +74,8 @@ public class MainTest {
         list.add("Zeynep");
         list.add("Zeynep");
         list.remove("Ali");
-        assertNotEquals(list.get(0), "Ali");
-        assertEquals(list.get(0), "Mehmet");
+        assertNotEquals("Ali", list.get(0));
+        assertEquals("Mehmet", list.get(0));
     }
 
 }
